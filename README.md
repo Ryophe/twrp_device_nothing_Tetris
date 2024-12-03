@@ -25,8 +25,8 @@ To compile the custom recovery, ensure your system is properly set up with the r
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YourRepo/CustomRecovery.git
-cd CustomRecovery
+git clone https://github.com/HackySoftOfficial/twrp_device_Nothing_CMF1
+cd twrp_device_Nothing_CMF1
 ```
 
 ### 2. Set Up the Build Environment
