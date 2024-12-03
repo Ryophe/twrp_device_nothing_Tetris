@@ -24,8 +24,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        echo "root" | sudo -S -u actions-runner apt-get update
-        echo "root" | sudo -S -u actions-runner apt-get install -y \
+        sudo apt-get update
+        sudo apt-get install -y \
           repo \
           git \
           g++-multilib \
@@ -51,23 +51,23 @@ jobs:
 
     - name: Clean up disk space
       run: |
-        echo "root" | sudo -S -u actions-runner rm -rf /usr/share/dotnet
-        echo "root" | sudo -S -u actions-runner rm -rf /usr/local/lib/android
-        echo "root" | sudo -S -u actions-runner rm -rf /opt/ghc
-        echo "root" | sudo -S -u actions-runner rm -rf /usr/local/share/boost
-        echo "root" | sudo -S -u actions-runner rm -rf "$AGENT_TOOLSDIRECTORY"
-        echo "root" | sudo -S -u actions-runner apt-get clean
+        sudo rm -rf /usr/share/dotnet
+        sudo rm -rf /usr/local/lib/android
+        sudo rm -rf /opt/ghc
+        sudo rm -rf /usr/local/share/boost
+        sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+        sudo apt-get clean
         df -h
 
     - name: Set up large swap memory (16GB)
       run: |
-        echo "root" | sudo -S -u actions-runner swapoff -a
-        echo "root" | sudo -S -u actions-runner rm -f /swapfile
-        echo "root" | sudo -S -u actions-runner dd if=/dev/zero of=/swapfile bs=1M count=16384
-        echo "root" | sudo -S -u actions-runner chmod 600 /swapfile
-        echo "root" | sudo -S -u actions-runner mkswap /swapfile
-        echo "root" | sudo -S -u actions-runner swapon /swapfile
-        echo "root" | sudo -S -u actions-runner swapon --show
+        sudo swapoff -a
+        sudo rm -f /swapfile
+        sudo dd if=/dev/zero of=/swapfile bs=1M count=16384
+        sudo chmod 600 /swapfile
+        sudo mkswap /swapfile
+        sudo swapon /swapfile
+        sudo swapon --show
         free -h
 
     - name: Sync the repo
