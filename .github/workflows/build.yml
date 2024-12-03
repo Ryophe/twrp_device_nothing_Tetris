@@ -17,6 +17,11 @@ jobs:
         java-version: '8'
         distribution: 'temurin'  # You can use zulu, temurin, or adoptopenjdk
 
+    - name: Set Git user info
+      run: |
+        git config --global user.name "Null Byte"
+        git config --global user.email "andrexyt@proton.me"
+
     - name: Install dependencies
       run: |
         sudo apt-get update
