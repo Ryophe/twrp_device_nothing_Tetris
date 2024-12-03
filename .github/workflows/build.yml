@@ -1,7 +1,7 @@
 name: Build TWRP for CMF1
 
 on:
-  workflow_dispatch:  # This allows manual triggering via a button
+  workflow_dispatch:
 
 jobs:
   build:
@@ -59,9 +59,8 @@ jobs:
 
     - name: Update repo tool to latest version
       run: |
-        # Make the repo tool executable and use the latest one
         chmod +x .repo/repo/repo
-        sudo ln -sf .repo/repo/repo /usr/bin/repo  # Update the repo tool
+        sudo ln -sf .repo/repo/repo /usr/bin/repo
 
     - name: Sync the repo
       run: |
