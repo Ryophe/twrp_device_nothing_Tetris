@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: [self-hosted, TWRPDroplet]
+    runs-on: [self-hosted, TWRP_runner]
 
     steps:
     - name: Checkout the code
