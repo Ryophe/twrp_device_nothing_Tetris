@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, TWRP_Runner]
 
     steps:
     - name: Checkout the code
