@@ -59,11 +59,11 @@ jobs:
         sudo apt-get clean
         df -h
 
-    - name: Set up large swap memory (16GB)
+    - name: Set up large swap memory (14GB)
       run: |
         sudo swapoff -a
         sudo rm -f /swapfile
-        sudo dd if=/dev/zero of=/swapfile bs=1M count=16384
+        sudo dd if=/dev/zero of=/swapfile bs=1M count=14336
         sudo chmod 600 /swapfile
         sudo mkswap /swapfile
         sudo swapon /swapfile
