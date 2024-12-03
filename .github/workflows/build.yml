@@ -15,7 +15,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '8'
-        distribution: 'temurin'  # You can use zulu, temurin, or adoptopenjdk
+        distribution: 'temurin'
 
     - name: Set Git user info
       run: |
@@ -49,23 +49,31 @@ jobs:
           bc \
           jq
 
-    - name: Set up large swap memory (8GB)
+    - name: Clean up disk space
       run: |
-        sudo dd if=/dev/zero of=/swapfile bs=1M count=8192
+        sudo rm -rf /usr/share/dotnet
+        sudo rm -rf /usr/local/lib/android
+        sudo rm -rf /opt/ghc
+        sudo rm -rf /usr/local/share/boost
+        sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+        sudo apt-get clean
+        df -h
+
+    - name: Set up large swap memory (16GB)
+      run: |
+        sudo swapoff -a
+        sudo rm -f /swapfile
+        sudo dd if=/dev/zero of=/swapfile bs=1M count=16384
         sudo chmod 600 /swapfile
         sudo mkswap /swapfile
         sudo swapon /swapfile
         sudo swapon --show
-
-    - name: Update repo tool to latest version
-      run: |
-        chmod +x .repo/repo/repo
-        sudo ln -sf .repo/repo/repo /usr/bin/repo
+        free -h
 
     - name: Sync the repo
       run: |
         repo init -u https://android.googlesource.com/platform/manifest
-        repo sync -j4
+        repo sync -j$(nproc --all)
 
     - name: Set up the build environment
       run: |
@@ -74,10 +82,10 @@ jobs:
 
     - name: Build TWRP
       run: |
-        make recoveryimage -j4
+        make recoveryimage -j$(nproc --all)
 
     - name: Export the TWRP artifact
       uses: actions/upload-artifact@v3
       with:
         name: twrp-recovery
-        path: out/target/
+        path: out/target/product/*/recovery.img
