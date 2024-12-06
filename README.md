@@ -1,7 +1,7 @@
 ### Custom Recovery Tree for the CMF Phone 1 (Tetris)
 #### The Linux Kernel binary and it's accompanying modules are provided by [Nothing Technology Limited](https://github.com/NothingOSS) under the GNU Public License
-#### Credits to [Heptex](https://github.com/Heptex/) for the Recovery Tree.
-#### Big thanks to [HpDevFox](https://github.com/hpdevFOX) for helping me with compilation and the tree.
+❤ Credits to [Heptex](https://github.com/Heptex/) for the Recovery Tree.
+❤ Big thanks to [HpDevFox](https://github.com/hpdevFOX) for helping me with compilation and the tree.
 
 The CMF Phone 1 (codenamed _"Tetris"_) is a mid-range smartphone from Nothing released in early 2024.
 
