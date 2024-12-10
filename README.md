@@ -32,49 +32,4 @@ git clone https://github.com/HackySoftOfficial/twrp_device_Nothing_CMF1
 cd twrp_device_Nothing_CMF1
 ```
 
-# 2. Installing Android SDK (For compilation)
-The Android Software Development Kit (SDK) is required for building and debugging. Here's how to install it:
-## 1. [Download the SDK](https://developer.android.com/studio)
-## 2. Install the SDK
-## 3. Configure Environment Variables
-Set up the environment variables for the SDK tools:
-```bash
-export ANDROID_HOME=path_to_android_sdk
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-```
-Verify the installation by running:
-```bash
-adb version
-fastboot version
-```
 
-# 3. Set Up build environment
-```bash
-source build/envsetup.sh
-lunch cmf_tetris-userdebug
-```
-
-# 4. Building the image
-```bash
-make recoveryimage
-```
-The compiled recovery image will be located in the `output/` folder.
-
-## After you've built a custom recovery using this tree, you can enter the following command in fastboot to flash it (yes, the recovery is stored in `vendor_boot`)
-# 5. Flash it!
-Once you have the recovery image, follow these steps to flash it onto your device:
-   1. Boot your CMF Phone 1 into fastboot mode:
-     - Turn off the device.
-     - Hold the **Volume Down** and **Power** buttons simultaneously until the fastboot screen appears.
-   2. Connect your device to a computer via USB.
-   3. Install the fastboot and ADB drivers if not installed. [Tutorial](https://nerdschalk.com/how-to-install-adb-and-fastboot/)
-   4. Flash the recovery image:
-      ```bash
-      fastboot flash vendor_boot vendor_boot.img
-      ```
-   5. Reboot your device.
-      ```bash
-      fastboot reboot
-      ```
-
-## Thanks to [Sidharth](https://github.com/sidharthify) For Base trees. ❤️
