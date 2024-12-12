@@ -25,10 +25,3 @@ Display | 1080 x 2400 pixels, 6.7 inches, 60/120 hz
 Root guide - https://xdaforums.com/t/root-cmf-phone-1.4681502/
 
 Bootloader unlock - https://xdaforums.com/t/nothing-cmf-phone-1-bootloader-unlock-guide.4680441/
-
-```bash
-git clone https://github.com/HackySoftOfficial/twrp_device_Nothing_CMF1
-cd twrp_device_Nothing_CMF1
-```
-
-
