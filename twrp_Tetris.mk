@@ -1,6 +1,6 @@
 # Device identifier
 PRODUCT_DEVICE := Tetris
-PRODUCT_NAME := Tetris
+PRODUCT_NAME := twrp_Tetris
 PRODUCT_BRAND := Nothing
 PRODUCT_MODEL := A015
 PRODUCT_MANUFACTURER := Nothing
