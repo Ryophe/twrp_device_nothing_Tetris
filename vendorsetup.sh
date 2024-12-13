@@ -82,11 +82,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
         export OF_FBE_METADATA_MOUNT_IGNORE=1
 
         # OTA
-	export OF_VANILLA_BUILD=1
- 	export OF_DISABLE_OTA_MENU=1
         export OF_KEEP_DM_VERITY=1
-        export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
-        export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
 
 	# R12.1 Settings
 	export FOX_VERSION="R12.1_InternalBeta"
